@@ -1,0 +1,63 @@
+<div class="slider-section">
+  <carousel [cellsToShow]="1" style="z-index: 1;" [autoplay]="true" [autoplayInterval]="5000" [height]="200"
+    [loop]="true" [images]="images" [cellsToScroll]="1" [transitionDuration]="500" [counter]="val"
+    [arrowsOutside]="false" [borderRadius]="10">
+  </carousel>
+
+  <section class="featured_items">
+    <h1>Most Featured</h1>
+    <mat-divider class="mb-2"></mat-divider>
+    <carousel [height]="300" style="z-index: 1;" [cellsToScroll]="2.5" [transitionDuration]="500">
+      <div class="carousel-cell" *ngFor="let im of images">
+        <div class="card" routerLink="/product/list">
+          <img src="https://i.ibb.co/vXPtzXD/spare-part-1.jpg" alt="...">
+          <h3 class="card-title">Item Name</h3>
+          <h2 class="card-title">₹ 500</h2>
+        </div>
+      </div>
+    </carousel>
+  </section>
+
+  <section class="featured_items">
+    <h1>Best Buy & Offers</h1>
+    <mat-divider class="mb-2"></mat-divider>
+    <carousel [height]="300" style="z-index: 1;" [cellsToScroll]="2.5" [transitionDuration]="500">
+      <div class="carousel-cell" *ngFor="let im of images">
+        <div class="card">
+          <img src="https://i.ibb.co/L5NsQz3/spare-part-2.jpg" alt="...">
+          <h3 class="card-title">Item Name</h3>
+          <h2 class="card-title">₹ 500</h2>
+        </div>
+      </div>
+    </carousel>
+  </section>
+
+  <section class="featured_items">
+    <h1>Most Featured</h1>
+    <mat-divider class="mb-2"></mat-divider>
+    <carousel [height]="300" style="z-index: 1;" [cellsToScroll]="2.5" [transitionDuration]="500">
+      <div class="carousel-cell" *ngFor="let im of images">
+        <div class="card">
+          <img src="https://i.ibb.co/vXPtzXD/spare-part-1.jpg" alt="...">
+          <h3 class="card-title">Item Name</h3>
+          <h2 class="card-title">₹ 500</h2>
+        </div>
+      </div>
+    </carousel>
+  </section>
+
+  <section class="featured_items">
+    <h1>Most Featured</h1>
+    <mat-divider class="mb-2"></mat-divider>
+    <carousel [height]="300" style="z-index: 1;" [cellsToScroll]="2.5" [transitionDuration]="500">
+      <div class="carousel-cell" *ngFor="let im of images">
+        <div class="card">
+          <img src="https://i.ibb.co/L5NsQz3/spare-part-2.jpg" alt="...">
+          <h3 class="card-title">Item Name</h3>
+          <h2 class="card-title">₹ 500</h2>
+        </div>
+      </div>
+    </carousel>
+  </section>
+
+</div>

@@ -1,0 +1,197 @@
+<div class="container">
+
+
+  <div class="row">
+    <div class="col-md-3">
+      <div class="product-filter">
+        <cdk-accordion class="example-accordion">
+          <cdk-accordion-item
+            *ngFor="let item of items; let index = index;"
+            #accordionItem="cdkAccordionItem"
+            class="example-accordion-item"
+            role="button"
+            tabindex="0"
+            [attr.id]="'accordion-header-' + index"
+            [attr.aria-expanded]="accordionItem.expanded"
+            [attr.aria-controls]="'accordion-body-' + index">
+            <div class="example-accordion-item-header" (click)="accordionItem.toggle()">
+              {{ item }}
+              <span class="example-accordion-item-description">
+                Click to {{ accordionItem.expanded ? 'close' : 'open' }}
+              </span>
+            </div>
+            <div
+              class="example-accordion-item-body"
+              role="region"
+              [style.display]="accordionItem.expanded ? '' : 'none'"
+              [attr.id]="'accordion-body-' + index"
+              [attr.aria-labelledby]="'accordion-header-' + index">
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perferendis
+              excepturi incidunt ipsum deleniti labore, tempore non nam doloribus blanditiis
+              veritatis illo autem iure aliquid ullam rem tenetur deserunt velit culpa?
+            </div>
+          </cdk-accordion-item>
+        </cdk-accordion>
+      </div>
+    </div>
+    <div class="col-md-9">
+      <div class="row">
+        <div class="col-md-4" (click)="route('1')">
+          <div class="items" >
+            <div class="branimg">
+             <img src="https://i.ibb.co/vXPtzXD/spare-part-1.jpg"/>
+            </div>
+            <div class="brandrc">
+              <h2>Test</h2>
+              <p>Test description of product lorem ipsum Test description of product lorem ipsum Test description of product lorem ipsum</p>
+              <b>12,000</b>
+              <span>4.2</span>
+              <p>Brand</p>
+            </div>
+            <div class="btn-group">
+              <button type="button" class="btn btn-outline-dark">Add to cart</button>
+              <!-- <button type="button" class="btn btn-primary">View Details</button> -->
+            </div>
+           </div>
+
+        </div>
+        <div class="col-md-4" (click)="route('1')">
+          <div class="items" >
+            <div class="branimg">
+             <img src="https://i.ibb.co/L5NsQz3/spare-part-2.jpg"/>
+            </div>
+            <div class="brandrc">
+              <h2>Test</h2>
+              <p>Test description of product lorem ipsum Test description of product lorem ipsum Test description of product lorem ipsum</p>
+              <b>12,000</b>
+              <span>4.2</span>
+              <p>Brand</p>
+            </div>
+            <div class="btn-group">
+              <button type="button" class="btn btn-outline-dark">Add to cart</button>
+              <!-- <button type="button" class="btn btn-primary">View Details</button> -->
+            </div>
+           </div>
+        </div>
+        <div class="col-md-4" (click)="route('1')">
+          <div class="items" >
+            <div class="branimg">
+             <img src="https://i.ibb.co/vXPtzXD/spare-part-1.jpg"/>
+            </div>
+            <div class="brandrc">
+              <h2>Test</h2>
+              <p>Test description of product lorem ipsum Test description of product lorem ipsum Test description of product lorem ipsum</p>
+              <b>12,000</b>
+              <span>4.2</span>
+              <p>Brand</p>
+            </div>
+            <div class="btn-group">
+              <button type="button" class="btn btn-outline-dark">Add to cart</button>
+              <!-- <button type="button" class="btn btn-primary">View Details</button> -->
+            </div>
+           </div>
+
+        </div>
+        <div class="col-md-4" (click)="route('1')">
+          <div class="items" >
+            <div class="branimg">
+             <img src="https://i.ibb.co/L5NsQz3/spare-part-2.jpg"/>
+            </div>
+            <div class="brandrc">
+              <h2>Test</h2>
+              <p>Test description of product lorem ipsum Test description of product lorem ipsum Test description of product lorem ipsum</p>
+              <b>12,000</b>
+              <span>4.2</span>
+              <p>Brand</p>
+            </div>
+            <div class="btn-group">
+              <button type="button" class="btn btn-outline-dark">Add to cart</button>
+              <!-- <button type="button" class="btn btn-primary">View Details</button> -->
+            </div>
+           </div>
+        </div>
+        <div class="col-md-4" (click)="route('1')">
+          <div class="items" >
+            <div class="branimg">
+             <img src="https://i.ibb.co/vXPtzXD/spare-part-1.jpg"/>
+            </div>
+            <div class="brandrc">
+              <h2>Test</h2>
+              <p>Test description of product lorem ipsum Test description of product lorem ipsum Test description of product lorem ipsum</p>
+              <b>12,000</b>
+              <span>4.2</span>
+              <p>Brand</p>
+            </div>
+            <div class="btn-group">
+              <button type="button" class="btn btn-outline-dark">Add to cart</button>
+              <!-- <button type="button" class="btn btn-primary">View Details</button> -->
+            </div>
+           </div>
+
+        </div>
+        <div class="col-md-4" (click)="route('1')">
+          <div class="items" >
+            <div class="branimg">
+             <img src="https://i.ibb.co/L5NsQz3/spare-part-2.jpg"/>
+            </div>
+            <div class="brandrc">
+              <h2>Test</h2>
+              <p>Test description of product lorem ipsum Test description of product lorem ipsum Test description of product lorem ipsum</p>
+              <b>12,000</b>
+              <span>4.2</span>
+              <p>Brand</p>
+            </div>
+            <div class="btn-group">
+              <button type="button" class="btn btn-outline-dark">Add to cart</button>
+              <!-- <button type="button" class="btn btn-primary">View Details</button> -->
+            </div>
+           </div>
+        </div>
+      </div>
+    </div>
+
+
+
+  </div>
+
+  <!-- <div class="product-thumbnail-list">
+    <div class="product-thumbnail">
+      <div class="thumbnail-image">
+        <img src="../../../../..https://i.ibb.co/vXPtzXD/spare-part-1.jpg" alt="Product Image">
+      </div>
+      <div class="thumbnail-info">
+        <h3 class="product-title">Product Name</h3>
+        <p class="product-price">$99.99</p>
+      </div>
+    </div>
+    <div class="product-thumbnail">
+      <div class="thumbnail-image">
+        <img src="https://i.ibb.co/L5NsQz3/spare-part-2.jpg" alt="Product Image">
+      </div>
+      <div class="thumbnail-info">
+        <h3 class="product-title">Product Name</h3>
+        <p class="product-price">$99.99</p>
+      </div>
+    </div>
+    <div class="product-thumbnail">
+      <div class="thumbnail-image">
+        <img src="../../../../..https://i.ibb.co/vXPtzXD/spare-part-1.jpg" alt="Product Image">
+      </div>
+      <div class="thumbnail-info">
+        <h3 class="product-title">Product Name</h3>
+        <p class="product-price">$99.99</p>
+      </div>
+    </div>
+    <div class="product-thumbnail">
+      <div class="thumbnail-image">
+        <img src="https://i.ibb.co/L5NsQz3/spare-part-2.jpg" alt="Product Image">
+      </div>
+      <div class="thumbnail-info">
+        <h3 class="product-title">Product Name</h3>
+        <p class="product-price">$99.99</p>
+      </div>
+    </div>
+  </div> -->
+</div>
+
+

@@ -1,0 +1,175 @@
+<section class="custom_wrapper static_header_gap">
+  <section class="wrap_box_1">
+    <div class="card">
+      <div class="card-header" (click)="move_to(1)">
+        <span class="block_heading"><span class="badge" [ngClass]="step_counter > 1 ? 'badge-success':'badge-primary'">1</span> DELIVERY ADDRESS</span>
+      </div>
+      <div class="card-body" *ngIf="step_counter == 1">
+        <section class="contents">
+          <div class="row">
+            <div class="col-md-8 col-sm-12">
+              <h1>{{addNewAddress ? 'Add Address':'Select Address'}}</h1>
+              <div class="row" *ngIf="addNewAddress">
+                <div class="col-md-6 col-sm-12">
+                  <mat-form-field class="example-full-width">
+                    <mat-label>Contact Person</mat-label>
+                    <input matInput>
+                  </mat-form-field>
+                </div>
+                <div class="col-md-6 col-sm-12">
+                  <mat-form-field class="example-full-width">
+                    <mat-label>10-Digit-Mobile-Number</mat-label>
+                    <span matPrefix>+91 &nbsp;</span>
+                    <input matInput>
+                  </mat-form-field>
+                </div>
+                <div class="col-md-6 col-sm-12">
+                  <mat-form-field class="example-full-width">
+                    <mat-label>Pincode</mat-label>
+                    <input matInput>
+                  </mat-form-field>
+                </div>
+                <div class="col-md-6 col-sm-12">
+                  <mat-form-field class="example-full-width">
+                    <mat-label>Locality</mat-label>
+                    <input matInput>
+                  </mat-form-field>
+                </div>
+                <div class="col-md-12 col-sm-12">
+                  <mat-form-field class="example-full-width" style="width: 100%;">
+                    <mat-label>Address</mat-label>
+                    <textarea matInput></textarea>
+                  </mat-form-field>
+                </div>
+                <div class="col-md-6 col-sm-12">
+                  <mat-form-field class="example-full-width">
+                    <mat-label>City/District/Town</mat-label>
+                    <input matInput>
+                  </mat-form-field>
+                </div>
+                <div class="col-md-6 col-sm-12">
+                  <mat-form-field>
+                    <mat-label>State</mat-label>
+                    <mat-select [(ngModel)]="selectedState" name="state">
+                      <mat-option *ngFor="let state of states" [value]="state.value">
+                        {{state.viewValue}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+                <div class="col-md-6 col-sm-12">
+                  <mat-form-field class="example-full-width">
+                    <mat-label>Landmark</mat-label>
+                    <input matInput>
+                  </mat-form-field>
+                </div>
+                <div class="col-md-6 col-sm-12">
+                  <mat-form-field class="example-full-width">
+                    <mat-label>Alternate Contact (Optional)</mat-label>
+                    <span matPrefix>+91 &nbsp;</span>
+                    <input matInput>
+                  </mat-form-field>
+                </div>
+                <div class="col-md-12 col-sm-12 pt-2">
+                  <mat-radio-group aria-label="Select an option">
+                    <mat-radio-button value="1">Home (All Day Delivery)</mat-radio-button>
+                    <mat-radio-button value="2">Work (Delivery Between 10 AM - 5 PM)</mat-radio-button>
+                  </mat-radio-group>
+                  <button mat-stroked-button color="warn" class="button_gap" (click)="addNewAddress = false"
+                    style="margin-top: 20px;">Back</button>
+                  <button mat-stroked-button color="primary"
+                    style="margin-top: 20px;"><mat-icon>add_circle_outline</mat-icon> Add</button>
+                  
+                </div>
+                
+              </div>
+              
+            </div>
+          </div>
+          <div class="select_address p-2" *ngIf="!addNewAddress">
+            <div class="card border-success" *ngFor="let address_block of demo_address">
+              <div class="card-header">
+                {{address_block.name}}  <span matTooltip="24 hr Delivery" class="badge badge-primary">{{address_block.type}}</span> 	<mat-icon style="float: right;" class="text-success">check</mat-icon>
+              </div>
+              <div class="card-body">
+                <p>{{address_block.mobile}}</p>
+                <p>{{address_block.address}}</p>
+              </div>
+            </div>
+          </div>
+          <button mat-stroked-button color="primary" *ngIf="!addNewAddress" (click)="addNewAddress = true" class="button_gap"> Add New Address</button>
+          <button mat-stroked-button *ngIf="!addNewAddress" (click)="stepPosition('f')"> Continue</button>
+        </section>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header" (click)="move_to(2)">
+        <span class="block_heading"><span class="badge" [ngClass]="step_counter > 2 ? 'badge-success':'badge-primary'">2</span> ORDER SUMMARY</span>
+      </div>
+      <div class="card-body" *ngIf="step_counter == 2">
+        <section class="contents">
+          <div class="cart_item" *ngFor="let item of cart_items">
+            <div class="card mb-3 mt-2">
+              <div class="row no-gutters">
+                <div class="col-md-4">
+                  <img
+                    [src]="item == 2 ? 'https://i.ibb.co/L5NsQz3/spare-part-2.jpg':'https://i.ibb.co/vXPtzXD/spare-part-1.jpg'"
+                    alt="...">
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">This is a wider card with supporting text below as a natural
+                      lead-in to additional content. This content is a little bit longer.</p>
+                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                    <mat-form-field class="quantity">
+                      <span matPrefix>Qty. &nbsp;</span>
+                      <input matInput type="text" [(ngModel)]="quantity">
+                    </mat-form-field><br>
+                    <button mat-button color="warn"><mat-icon>delete_outline</mat-icon> Delete</button>
+                    <button mat-button color="primary"><mat-icon>shopping_basket</mat-icon> Save for
+                      later</button>
+                    <button mat-button color="primary"><mat-icon>view_list</mat-icon> See more like
+                      this</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button mat-stroked-button color="primary" style="margin-top: 20px;" (click)="stepPosition('f')"> Continue</button>
+        </section>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header" (click)="move_to(3)">
+        <span class="block_heading"><span class="badge badge-primary">3</span> PAYMENT OPTIONS</span>
+      </div>
+      <div class="card-body" *ngIf="step_counter == 3">
+        <section class="contents">
+          <h2>Select Payment Options</h2>
+          <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"
+            [(ngModel)]="selected_payment_option">
+            <mat-radio-button class="example-radio-button mat-primary" *ngFor="let payment_option of payment_options" [value]="payment_option">
+              <marquee style="width: 35px;" behavior="" direction=""><img class="small_logo" src="https://i.ibb.co/Z1h6jft/google-pay-logo-png.jpg" alt=""><img class="small_logo" src="https://i.postimg.cc/hGK5fh2b/paytm-Logo.png" alt=""></marquee>{{payment_option}}
+            </mat-radio-button>
+          </mat-radio-group>
+          <button mat-stroked-button color="primary" style="margin-top: 20px;"> Continue</button>
+        </section>
+      </div>
+    </div>
+  </section>
+  <section class="wrap_box_2">
+    <div class="price_section">
+      <h4>Price Details</h4>
+      <mat-divider></mat-divider>
+      <p style="margin-top: 15px;">Price (4 items) <span style="float: right;">₹2000.00</span> </p>
+      <p>Discount <span style="float: right;" class="green_text">- ₹600.00</span> </p>
+      <p>Delivery Charge <span style="float: right;">₹1200.00</span> </p>
+      <mat-divider></mat-divider>
+      <p style="margin-top: 15px;"><b>Total</b> <span style="float: right;"><b>₹2600.00</b></span> </p>
+      <mat-divider></mat-divider>
+      <p style="margin-top: 15px;" class="green_text"> You will save ₹600.00 on this order </p>
+    </div>
+
+  </section>
+</section>

@@ -1,0 +1,145 @@
+<section class="custom_wrapper static_header_gap">
+    <section class="wrap_box_1">
+        <section class="cart_products">
+            <div class="card">
+                <div class="card-header">
+                    <h1>shopping cart</h1>
+                </div>
+            </div>
+            <div class="cart_item" *ngFor="let item of cart_items">
+                <div class="card mb-3 mt-2">
+                    <div class="row no-gutters">
+                        <div class="col-md-4">
+                            <img [src]="item == 2 ? 'https://i.ibb.co/L5NsQz3/spare-part-2.jpg':'https://i.ibb.co/vXPtzXD/spare-part-1.jpg'"
+                                alt="...">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text">This is a wider card with supporting text below as a natural
+                                    lead-in to additional content. This content is a little bit longer.</p>
+                                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                                <mat-form-field class="quantity">
+                                    <span matPrefix>Qty. &nbsp;</span>
+                                    <input matInput type="text" [(ngModel)]="quantity">
+                                </mat-form-field><br>
+                                <button mat-button color="warn"><mat-icon>delete_outline</mat-icon> Delete</button>
+                                <button mat-button color="primary"><mat-icon>shopping_basket</mat-icon> Save for
+                                    later</button>
+                                <button mat-button color="primary"><mat-icon>view_list</mat-icon> See more like
+                                    this</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <mat-divider></mat-divider>
+        <section class="other_products">
+            <div class="card header_card mt-3">
+                <h1>Your Items</h1>
+            </div>
+            <mat-tab-group>
+                <mat-tab label="Saved for later">
+                    <div class="cart_item" *ngFor="let item of cart_items">
+                        <div class="card mb-3 mt-2">
+                            <div class="row no-gutters">
+                                <div class="col-md-4">
+                                    <img [src]="item == 2 ? 'https://i.ibb.co/L5NsQz3/spare-part-2.jpg':'https://i.ibb.co/vXPtzXD/spare-part-1.jpg'"
+                                        alt="...">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Card title</h5>
+                                        <p class="card-text">This is a wider card with supporting text below as a natural
+                                            lead-in to additional content. This content is a little bit longer.</p>
+                                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                                        <mat-form-field class="quantity">
+                                            <span matPrefix>Qty. &nbsp;</span>
+                                            <input matInput type="text" [(ngModel)]="quantity">
+                                        </mat-form-field><br>
+                                        <button mat-button color="warn"><mat-icon>delete_outline</mat-icon> Delete</button>
+                                        <button mat-button color="primary"><mat-icon>shopping_basket</mat-icon> Save for
+                                            later</button>
+                                        <button mat-button color="primary"><mat-icon>view_list</mat-icon> See more like
+                                            this</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </mat-tab>
+                <mat-tab label="Buy it again">
+                    <div class="cart_item" *ngFor="let item of cart_items">
+                        <div class="card mb-3 mt-2">
+                            <div class="row no-gutters">
+                                <div class="col-md-4">
+                                    <img [src]="item == 2 ? 'https://i.ibb.co/L5NsQz3/spare-part-2.jpg':'https://i.ibb.co/vXPtzXD/spare-part-1.jpg'"
+                                        alt="...">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Card title</h5>
+                                        <p class="card-text">This is a wider card with supporting text below as a natural
+                                            lead-in to additional content. This content is a little bit longer.</p>
+                                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                                        <mat-form-field class="quantity">
+                                            <span matPrefix>Qty. &nbsp;</span>
+                                            <input matInput type="text" [(ngModel)]="quantity">
+                                        </mat-form-field><br>
+                                        <button mat-button color="warn"><mat-icon>delete_outline</mat-icon> Delete</button>
+                                        <button mat-button color="primary"><mat-icon>shopping_basket</mat-icon> Save for
+                                            later</button>
+                                        <button mat-button color="primary"><mat-icon>view_list</mat-icon> See more like
+                                            this</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </mat-tab>
+              </mat-tab-group>
+        </section>
+    </section>
+    <section class="wrap_box_2">
+        <div class="sub_total card">
+            <h1>Total: ₹ 2000.00</h1>
+            <h2>4 Items</h2>
+            <button mat-raised-button color="primary" routerLink="/order">Place Order</button><br>
+            <h3>Pay Through</h3>
+            <img src="https://i.postimg.cc/hGK5fh2b/paytm-Logo.png" alt="" style="width: 100%;">
+        </div>
+        <section class="related_items">
+            <div class="card header_card mt-3">
+                <h1>Related Items</h1>
+            </div>
+            <div class="card mt-2 mb-2" *ngFor="let item of cart_items">
+                <img [src]="item == 2 ? 'https://i.ibb.co/L5NsQz3/spare-part-2.jpg':'https://i.ibb.co/vXPtzXD/spare-part-1.jpg'"
+                                        alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <button mat-stroked-button color="primary" class="button_gap">Buy Now</button>
+                  <button mat-icon-button color="primary" matTooltip="Add to cart"><mat-icon>add_shopping_cart</mat-icon></button>
+                  <button mat-icon-button color="primary" matTooltip="Save for later"><mat-icon>shopping_basket</mat-icon></button>
+                </div>
+              </div>
+        </section>
+    </section>
+</section>
+
+<!-- <section class="container cart_container">
+    <div class="row">
+        <div class="col-md-9">
+            
+        </div>
+        <div class="col-md-3">
+            
+        </div>
+    </div>
+</section> -->
+
+<!-- <section class="cart_container">
+    <div class="cart_left_section"></div>
+    <div class="cart_right_section"></div>
+</section> -->

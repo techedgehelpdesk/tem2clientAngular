@@ -1,0 +1,133 @@
+<header>
+
+    <section [ngClass]="pageScrollHeight > 250 || only_header ? 'header_stay':''">
+      <!-- contact content -->
+      <div class="header-content-top">
+        <div class="content">
+          <span><i class="fas fa-phone-square-alt"></i> (00)9051721882</span>
+          <span><i class="fas fa-envelope-square"></i>techedgehelpdesk@gmail.com</span>
+        </div>
+      </div>
+      <!-- / contact content -->
+      <div class="search-container">
+        <!-- logo -->
+        <div class="logo_image" routerLink="/">
+          <img src="https://i.ibb.co/hWf3Vd6/Flipkart-logo.jpg" alt="">
+        </div>
+        <!-- open nav mobile -->
+  
+        <!--search -->
+        <div>
+          <mat-form-field>
+            <mat-label>Choose an option</mat-label>
+            <mat-select>
+              <mat-option value="option1" selected>All Categories</mat-option>
+              <mat-option value="option2">Option 2 (disabled)</mat-option>
+              <mat-option value="option3">Option 3</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field class="example-full-width" style="width: 300px;">
+            <mat-label>Search here..</mat-label>
+            <input type="text" placeholder="Pick one" aria-label="Number" matInput [formControl]="myControl"
+              [matAutocomplete]="auto">
+            <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+              <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                <mat-icon>av_timer</mat-icon>{{option}}
+              </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
+          <button type="button" class="btn btn-success search_button"> <i class="fas fa-search"></i> Search</button>
+        </div>
+        <!-- search -->
+  
+        <div class="nav_buttons">
+          <button mat-button> <mat-icon>store</mat-icon> Become a seller</button>
+          <button mat-button routerLink="/cart"> <mat-icon>shopping_cart</mat-icon> Cart <span class="badge badge-success">4</span></button>
+          <button mat-button color="primary" *ngIf="!curr_user" (click)="login()"> <mat-icon>account_circle</mat-icon> SIGN IN</button>
+          <button mat-button color="primary" *ngIf="curr_user" [matMenuTriggerFor]="user_menu"> <mat-icon>account_circle</mat-icon> {{curr_user.name}}</button>
+        </div>
+
+        <!-- user menu -->
+
+        <mat-menu #user_menu="matMenu">
+          <button mat-menu-item>
+            <mat-icon>list</mat-icon>
+            <span>Orders</span>
+          </button>
+          <button mat-menu-item>
+            <mat-icon>shopping_basket</mat-icon>
+            <span>Saved for later</span>
+          </button>
+          <mat-divider></mat-divider>
+          <button mat-menu-item (click)="signout()">
+            <mat-icon>logout</mat-icon>
+            <span>Sign out</span>
+          </button>
+        </mat-menu>
+
+        <!-- user menu -->
+  
+      </div>
+      <!-- nav navigation commerce -->
+    </section>
+  
+    <div class="category_options" *ngIf="!only_header">
+      <div class="category_option" [matMenuTriggerFor]="menu">
+        <div *ngIf="category_image_show">
+          <img src="https://i.ibb.co/6wtc48G/packaging.jpg" alt="">
+        </div>
+        <br>
+        <span>Packaging <mat-icon>keyboard_arrow_down</mat-icon></span>
+        <mat-menu #menu="matMenu" class="customized_mat_menu">
+          <div style="width: auto;display: flex;justify-content: space-evenly;"  routerLink="/product/list">
+            <mat-list role="list">
+              <mat-list-item role="listitem">Sub product 1</mat-list-item>
+              <mat-list-item role="listitem">Sub product 2</mat-list-item>
+              <mat-list-item role="listitem">Sub product 3</mat-list-item>
+            </mat-list>
+            <mat-list role="list">
+              <mat-list-item role="listitem">Sub product</mat-list-item>
+              <mat-list-item role="listitem">Sub product 2</mat-list-item>
+              <mat-list-item role="listitem">Sub product 3</mat-list-item>
+            </mat-list>
+          </div>
+        </mat-menu>
+      </div>
+      <div class="category_option">
+        <div *ngIf="category_image_show">
+          <img src="https://i.ibb.co/6R3mZkj/energy.jpg" alt="">
+        </div>
+        <br>
+        <span>Energy <mat-icon>keyboard_arrow_down</mat-icon></span>
+      </div>
+      <div class="category_option">
+        <div *ngIf="category_image_show">
+          <img src="https://i.ibb.co/zHHD7KF/machine-tools.jpg" alt="">
+        </div>
+        <br>
+        <span>Power Tools <mat-icon>keyboard_arrow_down</mat-icon></span>
+      </div>
+      <div class="category_option">
+        <div *ngIf="category_image_show">
+          <img src="https://i.ibb.co/QXCm3D0/end-product.jpg" alt="">
+        </div>
+        <br>
+        <span>Products <mat-icon>keyboard_arrow_down</mat-icon></span>
+      </div>
+      <div class="category_option">
+        <div *ngIf="category_image_show">
+          <img src="https://i.ibb.co/PwycwpH/PLC.webp" alt="">
+        </div>
+        <br>
+        <span>PLC <mat-icon>keyboard_arrow_down</mat-icon></span>
+      </div>
+      <div class="category_option">
+        <div *ngIf="category_image_show">
+          <img src="https://i.ibb.co/wyhCSzF/Protection.jpg" alt="">
+        </div>
+        <br>
+        <span>Protection <mat-icon>keyboard_arrow_down</mat-icon></span>
+      </div>
+    </div>
+  
+  </header>
