@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 export class ProductListComponent implements OnInit {
   items = ['Search By', 'Manufacturer', 'Price', 'Item 4', 'Item 5'];
   expandedIndex = 0;
+  weightFilterOption : 0 | 1 = 1;
   constructor(private _router:Router) { }
 
   ngOnInit(): void {

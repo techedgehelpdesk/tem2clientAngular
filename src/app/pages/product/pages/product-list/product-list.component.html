@@ -1,157 +1,497 @@
 <div class="container">
-
-
   <div class="row">
     <div class="col-md-3">
+      <!-- ***Left Filter Panel Starts*** -->
       <div class="product-filter">
-        <cdk-accordion class="example-accordion">
-          <cdk-accordion-item
-            *ngFor="let item of items; let index = index;"
-            #accordionItem="cdkAccordionItem"
-            class="example-accordion-item"
-            role="button"
-            tabindex="0"
-            [attr.id]="'accordion-header-' + index"
-            [attr.aria-expanded]="accordionItem.expanded"
-            [attr.aria-controls]="'accordion-body-' + index">
-            <div class="example-accordion-item-header" (click)="accordionItem.toggle()">
-              {{ item }}
-              <span class="example-accordion-item-description">
-                Click to {{ accordionItem.expanded ? 'close' : 'open' }}
+        <form>
+          <cdk-accordion multi="true" class="example-accordion">
+            <!-- **search by** -->
+            <cdk-accordion-item
+              #accordionItem1="cdkAccordionItem"
+              class="example-accordion-item"
+              role="button"
+              tabindex="0"
+ 
+              [attr.id]="'accordion-header-0'"
+              [attr.aria-expanded]="accordionItem1.expanded"
+              [attr.aria-controls]="'accordion-body-0'"
+            >
+              <div
+                class="example-accordion-item-header"
+                (click)="accordionItem1.toggle()"
+              >
+                Search By
+                <span class="example-accordion-item-description">
+                  Click to {{ accordionItem1.expanded ? 'close' : 'open' }}
+                </span>
+              </div>
+              <div
+                class="example-accordion-item-body"
+                role="region"
+                [style.display]="accordionItem1.expanded ? '' : 'none'"
+                [attr.id]="'accordion-body-0'"
+                [attr.aria-labelledby]="'accordion-header-0'"
+              >
+                <mat-form-field class="example-full-width">
+                  <mat-label>Manual Description</mat-label>
+                  <input matInput placeholder="Tension Spring" />
+                </mat-form-field>
+
+                <mat-form-field class="example-full-width">
+                  <mat-label>Accounts Description</mat-label>
+                  <input matInput placeholder="Tension Spring" />
+                </mat-form-field>
+
+                <mat-form-field class="example-full-width">
+                  <mat-label>Manufactured By</mat-label>
+                  <input matInput placeholder="Tension Spring" />
+                </mat-form-field>
+              </div>
+            </cdk-accordion-item>
+
+            <!-- **Price** -->
+            <cdk-accordion-item
+              #accordionItem2="cdkAccordionItem"
+              class="example-accordion-item"
+              role="button"
+              tabindex="0"
+              expanded="open"
+              [attr.id]="'accordion-header-1'"
+              [attr.aria-expanded]="accordionItem2.expanded"
+              [attr.aria-controls]="'accordion-body-1'"
+            >
+              <div
+                class="example-accordion-item-header"
+                (click)="accordionItem2.toggle()"
+              >
+                Price
+                <span class="example-accordion-item-description">
+                  Click to {{ accordionItem2.expanded ? 'close' : 'open' }}
+                </span>
+              </div>
+              <div
+                class="example-accordion-item-body"
+                role="region"
+                [style.display]="accordionItem2.expanded ? '' : 'none'"
+                [attr.id]="'accordion-body-1'"
+                [attr.aria-labelledby]="'accordion-header-1'"
+              >
+                <mat-slider min="200" max="500">
+                  <input value="300" matSliderStartThumb />
+                  <input value="400" matSliderEndThumb />
+                </mat-slider>
+              </div>
+            </cdk-accordion-item>
+
+            <!-- **Weight** -->
+            <cdk-accordion-item
+              #accordionItem3="cdkAccordionItem"
+              class="example-accordion-item"
+              role="button"
+              tabindex="0"
+              expanded="open"
+              [attr.id]="'accordion-header-2'"
+              [attr.aria-expanded]="accordionItem3.expanded"
+              [attr.aria-controls]="'accordion-body-2'"
+            >
+              <div
+                class="example-accordion-item-header"
+                (click)="accordionItem3.toggle()"
+              >
+                Weight
+                <span class="example-accordion-item-description">
+                  Click to {{ accordionItem3.expanded ? 'close' : 'open' }}
+                </span>
+              </div>
+              <div
+                class="example-accordion-item-body"
+                role="region"
+                [style.display]="accordionItem3.expanded ? '' : 'none'"
+                [attr.id]="'accordion-body-2'"
+                [attr.aria-labelledby]="'accordion-header-2'"
+              >
+                <mat-button-toggle-group
+                  name="fontStyle"
+                  [(ngModel)]="weightFilterOption"
+                  aria-label="Font Style"
+                >
+                  <mat-button-toggle value="0">Search by</mat-button-toggle>
+                  <mat-button-toggle value="1">Range</mat-button-toggle>
+                </mat-button-toggle-group>
+                <ng-container *ngIf="weightFilterOption==0">
+                  <mat-form-field class="example-full-width">
+                    <mat-label>enter weight</mat-label>
+                    <input matInput placeholder="50" /> </mat-form-field
+                  >gm</ng-container
+                >
+                <ng-container *ngIf="weightFilterOption==1">
+                  <mat-slider min="200" max="500">
+                    <input value="300" matSliderStartThumb />
+                    <input value="400" matSliderEndThumb /> </mat-slider
+                ></ng-container>
+              </div>
+            </cdk-accordion-item>
+
+            <!-- **Part no** -->
+            <cdk-accordion-item
+              #accordionItem4="cdkAccordionItem"
+              class="example-accordion-item"
+              role="button"
+              tabindex="0"
+              expanded="open"
+              [attr.id]="'accordion-header-3'"
+              [attr.aria-expanded]="accordionItem4.expanded"
+              [attr.aria-controls]="'accordion-body-3'"
+            >
+              <div
+                class="example-accordion-item-header"
+                (click)="accordionItem4.toggle()"
+              >
+                Part no
+                <span class="example-accordion-item-description">
+                  Click to {{ accordionItem4.expanded ? 'close' : 'open' }}
+                </span>
+              </div>
+              <div
+                class="example-accordion-item-body"
+                role="region"
+                [style.display]="accordionItem4.expanded ? '' : 'none'"
+                [attr.id]="'accordion-body-3'"
+                [attr.aria-labelledby]="'accordion-header-3'"
+              >
+                <mat-form-field class="example-full-width">
+                  <mat-label>Enter part number</mat-label>
+                  <input matInput placeholder="2201210020" />
+                </mat-form-field>
+              </div>
+            </cdk-accordion-item>
+
+            <!-- **Model Suitability** -->
+            <cdk-accordion-item
+              #accordionItem5="cdkAccordionItem"
+              class="example-accordion-item"
+              role="button"
+              tabindex="0"
+              expanded="open"
+              [attr.id]="'accordion-header-4'"
+              [attr.aria-expanded]="accordionItem5.expanded"
+              [attr.aria-controls]="'accordion-body-4'"
+            >
+              <div
+                class="example-accordion-item-header"
+                (click)="accordionItem5.toggle()"
+              >
+                Model Suitability
+                <span class="example-accordion-item-description">
+                  Click to {{ accordionItem5.expanded ? 'close' : 'open' }}
+                </span>
+              </div>
+              <div
+                class="example-accordion-item-body"
+                role="region"
+                [style.display]="accordionItem5.expanded ? '' : 'none'"
+                [attr.id]="'accordion-body-4'"
+                [attr.aria-labelledby]="'accordion-header-4'"
+              >
+                <mat-form-field appearance="fill">
+                  <mat-label>Select Model Suitability </mat-label>
+                  <mat-select>
+                    <mat-option [value]="'Test1'">
+                      Test1
+                    </mat-option>
+                    <mat-option [value]="'Test2'">
+                      Test2
+                    </mat-option>
+                    <mat-option [value]="'Test3'">
+                      Test3
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+            </cdk-accordion-item>
+
+            <!-- **Availabilty** -->
+            <cdk-accordion-item
+              #accordionItem6="cdkAccordionItem"
+              class="example-accordion-item"
+              role="button"
+              tabindex="0"
+              expanded="open"
+              [attr.id]="'accordion-header-4'"
+              [attr.aria-expanded]="accordionItem6.expanded"
+              [attr.aria-controls]="'accordion-body-4'"
+            >
+              <div
+                class="example-accordion-item-header"
+                (click)="accordionItem6.toggle()"
+              >
+              Availabilty
+                <span class="example-accordion-item-description">
+                  Click to {{ accordionItem6.expanded ? 'close' : 'open' }}
+                </span>
+              </div>
+              <div
+                class="example-accordion-item-body"
+                role="region"
+                [style.display]="accordionItem6.expanded ? '' : 'none'"
+                [attr.id]="'accordion-body-4'"
+                [attr.aria-labelledby]="'accordion-header-4'"
+              >
+              <span class="example-list-section">
+                <ul>
+                 
+                  <li>
+                    <mat-checkbox [color]="'blue'">
+                      Show availabe items only
+                    </mat-checkbox>
+                  </li>
+                </ul>
               </span>
-            </div>
-            <div
-              class="example-accordion-item-body"
-              role="region"
-              [style.display]="accordionItem.expanded ? '' : 'none'"
-              [attr.id]="'accordion-body-' + index"
-              [attr.aria-labelledby]="'accordion-header-' + index">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perferendis
-              excepturi incidunt ipsum deleniti labore, tempore non nam doloribus blanditiis
-              veritatis illo autem iure aliquid ullam rem tenetur deserunt velit culpa?
-            </div>
-          </cdk-accordion-item>
-        </cdk-accordion>
+              </div>
+            </cdk-accordion-item>
+
+            <!-- **Discount** -->
+            <cdk-accordion-item
+              #accordionItem7="cdkAccordionItem"
+              class="example-accordion-item"
+              role="button"
+              tabindex="0"
+              [attr.id]="'accordion-header-4'"
+              [attr.aria-expanded]="accordionItem7.expanded"
+              [attr.aria-controls]="'accordion-body-4'"
+            >
+              <div
+                class="example-accordion-item-header"
+                (click)="accordionItem7.toggle()"
+              >
+              Discount
+                <span class="example-accordion-item-description">
+                  Click to {{ accordionItem7.expanded ? 'close' : 'open' }}
+                </span>
+              </div>
+              <div
+                class="example-accordion-item-body"
+                role="region"
+                [style.display]="accordionItem7.expanded ? '' : 'none'"
+                [attr.id]="'accordion-body-4'"
+                [attr.aria-labelledby]="'accordion-header-4'"
+              >
+                <span class="example-list-section">
+                  <ul>
+                    <li>
+                      <mat-checkbox [color]="'blue'">
+                        40%
+                      </mat-checkbox>
+                    </li>
+                    <li>
+                      <mat-checkbox [color]="'blue'">
+                        50%
+                      </mat-checkbox>
+                    </li>
+                    <li>
+                      <mat-checkbox [color]="'blue'">
+                        60%
+                      </mat-checkbox>
+                    </li>
+                  </ul>
+                </span>
+              </div>
+            </cdk-accordion-item>
+
+            <!-- **Rating** -->
+            <cdk-accordion-item
+              #accordionItem8="cdkAccordionItem"
+              class="example-accordion-item"
+              role="button"
+              tabindex="0"
+              [attr.id]="'accordion-header-4'"
+              [attr.aria-expanded]="accordionItem8.expanded"
+              [attr.aria-controls]="'accordion-body-4'"
+            >
+              <div
+                class="example-accordion-item-header"
+                (click)="accordionItem8.toggle()"
+              >
+              Rating
+                <span class="example-accordion-item-description">
+                  Click to {{ accordionItem8.expanded ? 'close' : 'open' }}
+                </span>
+              </div>
+              <div
+                class="example-accordion-item-body"
+                role="region"
+                [style.display]="accordionItem8.expanded ? '' : 'none'"
+                [attr.id]="'accordion-body-4'"
+                [attr.aria-labelledby]="'accordion-header-4'"
+              >
+                <span class="example-list-section">
+                  <ul>
+                    <li>
+                      <mat-checkbox [color]="'blue'">
+                        40%
+                      </mat-checkbox>
+                    </li>
+                    <li>
+                      <mat-checkbox [color]="'blue'">
+                        50%
+                      </mat-checkbox>
+                    </li>
+                    <li>
+                      <mat-checkbox [color]="'blue'">
+                        60%
+                      </mat-checkbox>
+                    </li>
+                  </ul>
+                </span>
+              </div>
+            </cdk-accordion-item>
+          </cdk-accordion>
+        </form>
       </div>
+      <!-- ***Left Filter Panel Ends*** -->
     </div>
     <div class="col-md-9">
       <div class="row">
         <div class="col-md-4" (click)="route('1')">
-          <div class="items" >
+          <div class="items">
             <div class="branimg">
-             <img src="https://i.ibb.co/vXPtzXD/spare-part-1.jpg"/>
+              <img src="https://i.ibb.co/vXPtzXD/spare-part-1.jpg" />
             </div>
             <div class="brandrc">
               <h2>Test</h2>
-              <p>Test description of product lorem ipsum Test description of product lorem ipsum Test description of product lorem ipsum</p>
+              <p>
+                Test description of product lorem ipsum Test description of
+                product lorem ipsum Test description of product lorem ipsum
+              </p>
               <b>12,000</b>
               <span>4.2</span>
               <p>Brand</p>
             </div>
             <div class="btn-group">
-              <button type="button" class="btn btn-outline-dark">Add to cart</button>
+              <button type="button" class="btn btn-outline-dark">
+                Add to cart
+              </button>
               <!-- <button type="button" class="btn btn-primary">View Details</button> -->
             </div>
-           </div>
-
+          </div>
         </div>
         <div class="col-md-4" (click)="route('1')">
-          <div class="items" >
+          <div class="items">
             <div class="branimg">
-             <img src="https://i.ibb.co/L5NsQz3/spare-part-2.jpg"/>
+              <img src="https://i.ibb.co/L5NsQz3/spare-part-2.jpg" />
             </div>
             <div class="brandrc">
               <h2>Test</h2>
-              <p>Test description of product lorem ipsum Test description of product lorem ipsum Test description of product lorem ipsum</p>
+              <p>
+                Test description of product lorem ipsum Test description of
+                product lorem ipsum Test description of product lorem ipsum
+              </p>
               <b>12,000</b>
               <span>4.2</span>
               <p>Brand</p>
             </div>
             <div class="btn-group">
-              <button type="button" class="btn btn-outline-dark">Add to cart</button>
+              <button type="button" class="btn btn-outline-dark">
+                Add to cart
+              </button>
               <!-- <button type="button" class="btn btn-primary">View Details</button> -->
             </div>
-           </div>
+          </div>
         </div>
         <div class="col-md-4" (click)="route('1')">
-          <div class="items" >
+          <div class="items">
             <div class="branimg">
-             <img src="https://i.ibb.co/vXPtzXD/spare-part-1.jpg"/>
+              <img src="https://i.ibb.co/vXPtzXD/spare-part-1.jpg" />
             </div>
             <div class="brandrc">
               <h2>Test</h2>
-              <p>Test description of product lorem ipsum Test description of product lorem ipsum Test description of product lorem ipsum</p>
+              <p>
+                Test description of product lorem ipsum Test description of
+                product lorem ipsum Test description of product lorem ipsum
+              </p>
               <b>12,000</b>
               <span>4.2</span>
               <p>Brand</p>
             </div>
             <div class="btn-group">
-              <button type="button" class="btn btn-outline-dark">Add to cart</button>
+              <button type="button" class="btn btn-outline-dark">
+                Add to cart
+              </button>
               <!-- <button type="button" class="btn btn-primary">View Details</button> -->
             </div>
-           </div>
-
+          </div>
         </div>
         <div class="col-md-4" (click)="route('1')">
-          <div class="items" >
+          <div class="items">
             <div class="branimg">
-             <img src="https://i.ibb.co/L5NsQz3/spare-part-2.jpg"/>
+              <img src="https://i.ibb.co/L5NsQz3/spare-part-2.jpg" />
             </div>
             <div class="brandrc">
               <h2>Test</h2>
-              <p>Test description of product lorem ipsum Test description of product lorem ipsum Test description of product lorem ipsum</p>
+              <p>
+                Test description of product lorem ipsum Test description of
+                product lorem ipsum Test description of product lorem ipsum
+              </p>
               <b>12,000</b>
               <span>4.2</span>
               <p>Brand</p>
             </div>
             <div class="btn-group">
-              <button type="button" class="btn btn-outline-dark">Add to cart</button>
+              <button type="button" class="btn btn-outline-dark">
+                Add to cart
+              </button>
               <!-- <button type="button" class="btn btn-primary">View Details</button> -->
             </div>
-           </div>
+          </div>
         </div>
         <div class="col-md-4" (click)="route('1')">
-          <div class="items" >
+          <div class="items">
             <div class="branimg">
-             <img src="https://i.ibb.co/vXPtzXD/spare-part-1.jpg"/>
+              <img src="https://i.ibb.co/vXPtzXD/spare-part-1.jpg" />
             </div>
             <div class="brandrc">
               <h2>Test</h2>
-              <p>Test description of product lorem ipsum Test description of product lorem ipsum Test description of product lorem ipsum</p>
+              <p>
+                Test description of product lorem ipsum Test description of
+                product lorem ipsum Test description of product lorem ipsum
+              </p>
               <b>12,000</b>
               <span>4.2</span>
               <p>Brand</p>
             </div>
             <div class="btn-group">
-              <button type="button" class="btn btn-outline-dark">Add to cart</button>
+              <button type="button" class="btn btn-outline-dark">
+                Add to cart
+              </button>
               <!-- <button type="button" class="btn btn-primary">View Details</button> -->
             </div>
-           </div>
-
+          </div>
         </div>
         <div class="col-md-4" (click)="route('1')">
-          <div class="items" >
+          <div class="items">
             <div class="branimg">
-             <img src="https://i.ibb.co/L5NsQz3/spare-part-2.jpg"/>
+              <img src="https://i.ibb.co/L5NsQz3/spare-part-2.jpg" />
             </div>
             <div class="brandrc">
               <h2>Test</h2>
-              <p>Test description of product lorem ipsum Test description of product lorem ipsum Test description of product lorem ipsum</p>
+              <p>
+                Test description of product lorem ipsum Test description of
+                product lorem ipsum Test description of product lorem ipsum
+              </p>
               <b>12,000</b>
               <span>4.2</span>
               <p>Brand</p>
             </div>
             <div class="btn-group">
-              <button type="button" class="btn btn-outline-dark">Add to cart</button>
+              <button type="button" class="btn btn-outline-dark">
+                Add to cart
+              </button>
               <!-- <button type="button" class="btn btn-primary">View Details</button> -->
             </div>
-           </div>
+          </div>
         </div>
       </div>
     </div>
-
-
-
   </div>
 
   <!-- <div class="product-thumbnail-list">
@@ -193,5 +533,3 @@
     </div>
   </div> -->
 </div>
-
-
